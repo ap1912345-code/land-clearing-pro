@@ -10,8 +10,11 @@ const COUNT_CALLS_AS_LEAD = true;
 
 type LeadPayload = Record<string, string>;
 
-// Where to POST leads. Replace with your CRM webhook, Zapier hook, or backend endpoint.
-const LEAD_ENDPOINT = ''; // e.g. 'https://hooks.zapier.com/hooks/catch/123/abc/'
+// Web3Forms delivers form submissions to a verified email. Access key is safe to
+// expose in browser JS — Web3Forms handles abuse server-side. Configured via
+// VITE_WEB3FORMS_KEY in .env.
+const WEB3FORMS_KEY = import.meta.env.VITE_WEB3FORMS_KEY ?? '';
+const WEB3FORMS_URL = 'https://api.web3forms.com/submit';
 
 export function wireLeadForms() {
   $$('form[data-form]').forEach(formEl => {
@@ -54,15 +57,38 @@ async function onSubmit(e: SubmitEvent, form: HTMLFormElement) {
   const status = form.querySelector<HTMLElement>('[data-form-status]');
 
   try {
-    if (LEAD_ENDPOINT) {
-      await fetch(LEAD_ENDPOINT, {
+    if (WEB3FORMS_KEY) {
+      const res = await fetch(WEB3FORMS_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source: form.dataset.form, page: location.href }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          // Subject line used by Web3Forms when emailing you. Includes service so
+          // urgent inquiries (e.g. tree removal vs equipment rental) sort easily.
+          subject: `New lead: ${data.name || 'Unknown'}${data.service ? ` — ${data.service}` : ''}`,
+          from_name: 'Prentiss Services website',
+          // Form fields — Web3Forms emails these with their field names as labels.
+          name: data.name,
+          phone: data.phone,
+          email: data.email || '(not provided)',
+          zip: data.zip,
+          acreage: data.acreage || '(not specified)',
+          service: data.service,
+          notes: data.notes || '(none)',
+          // Context for which form on the page and the page URL.
+          source: form.dataset.form,
+          page: location.href,
+          // Web3Forms server-side honeypot.
+          botcheck: '',
+        }),
       });
+      const json = await res.json().catch(() => ({}));
+      if (!res.ok || (json as { success?: boolean }).success === false) {
+        throw new Error(`Web3Forms ${res.status}: ${JSON.stringify(json).slice(0, 200)}`);
+      }
     } else {
-      // No endpoint wired yet — log locally so it's obvious during dev.
-      console.info('[lead] (no endpoint configured) would have sent:', data);
+      // No key configured — log locally so it's obvious during dev.
+      console.info('[lead] (VITE_WEB3FORMS_KEY not set) would have sent:', data);
       await new Promise(r => setTimeout(r, 400));
     }
 
