@@ -10,12 +10,15 @@
     "generate:images": "tsx scripts/generate-images.ts",
     "generate:images:dry": "tsx scripts/generate-images.ts --dry-run",
     "generate:ads": "tsx scripts/generate-ads.ts",
-    "generate:ads:dry": "tsx scripts/generate-ads.ts --dry-run"
+    "generate:ads:dry": "tsx scripts/generate-ads.ts --dry-run",
+    "optimize:images": "tsx scripts/optimize-images.ts",
+    "optimize:images:dry": "tsx scripts/optimize-images.ts --dry-run"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
     "tsx": "^4.19.2",
     "typescript": "^5.7.2",

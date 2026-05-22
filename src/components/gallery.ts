@@ -20,11 +20,11 @@ export function Gallery() {
         <figure>
           <div class="ba-wrap rounded-xl overflow-hidden border border-white/5 shadow-card"
                data-ba-id="${esc(ba.id)}" style="aspect-ratio: 3/2;">
-            <img src="${IMAGES_BASE}/${esc(ba.id)}-before.png"
+            <img src="${IMAGES_BASE}/${esc(ba.id)}-before.webp"
                  alt="${esc(ba.before.alt)}" loading="lazy" decoding="async"
                  class="absolute inset-0 w-full h-full object-cover" />
             <div class="ba-after" style="width:50%;">
-              <img src="${IMAGES_BASE}/${esc(ba.id)}-after.png"
+              <img src="${IMAGES_BASE}/${esc(ba.id)}-after.webp"
                    alt="${esc(ba.after.alt)}" loading="lazy" decoding="async" />
             </div>
             <div class="ba-handle" style="left:50%;"></div>

@@ -12,4 +12,6 @@ export const TRACKING = {
 };
 
 export const IMAGES_BASE = '/images';
-export const img = (id: string) => `${IMAGES_BASE}/${id}.png`;
+// Site images are optimized to WebP via `npm run optimize:images`.
+// Source PNGs live alongside (or are recreated via `npm run generate:images`).
+export const img = (id: string) => `${IMAGES_BASE}/${id}.webp`;

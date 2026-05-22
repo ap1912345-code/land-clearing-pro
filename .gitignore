@@ -7,8 +7,11 @@ dist
 .vite
 .vercel
 
-# Site images are committed so deploys don't need API access.
+# Site images live in public/images/. Only the optimized .webp files are shipped.
+# Source .png files are transient — regenerate them via `npm run generate:images`
+# then re-run `npm run optimize:images` to recreate the .webp files.
 !public/images/
+public/images/*.png
 
 # FB ad creatives are for upload to Ads Manager, not the site.
 ads/
