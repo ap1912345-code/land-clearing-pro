@@ -1,0 +1,27 @@
+{
+  "name": "land-clearing-pro",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --host",
+    "generate:images": "tsx scripts/generate-images.ts",
+    "generate:images:dry": "tsx scripts/generate-images.ts --dry-run",
+    "generate:ads": "tsx scripts/generate-ads.ts",
+    "generate:ads:dry": "tsx scripts/generate-ads.ts --dry-run"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7"
+  }
+}

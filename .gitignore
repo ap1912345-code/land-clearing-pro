@@ -1,0 +1,14 @@
+node_modules
+dist
+.env
+.env.local
+.DS_Store
+*.log
+.vite
+.vercel
+
+# Site images are committed so deploys don't need API access.
+!public/images/
+
+# FB ad creatives are for upload to Ads Manager, not the site.
+ads/
