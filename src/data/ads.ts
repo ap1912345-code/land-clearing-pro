@@ -329,7 +329,7 @@ export const AD_CREATIVES: AdCreative[] = [
     }),
     copy: {
       headline: 'One call, one crew, done',
-      primaryText: 'We own the equipment. No subcontractors. Jobs start on time and finish on the day we said.',
+      primaryText: 'We own the equipment, we run it, we fix it. Jobs start on time and finish on the day we said.',
       cta: 'Get Quote',
     },
   },
@@ -775,7 +775,7 @@ CTA BADGE (bottom-center, ~6% padding from bottom): A bright yellow pill-shaped 
 ${TEXT_RULES}`,
     copy: {
       headline: 'Five stars, 500+ jobs',
-      primaryText: 'No subcontractors. Same crew shows up. Same crew finishes.',
+      primaryText: 'Same crew that quoted the job is the crew that finishes it.',
       cta: 'Learn More',
     },
   },
@@ -805,7 +805,7 @@ ${TEXT_RULES}`,
     },
   },
   {
-    id: 'stat-no-subs',
+    id: 'stat-family-owned',
     concept: 'stat-badge',
     format: 'feed',
     size: '1024x1024',
@@ -816,16 +816,16 @@ PHOTO BACKGROUND (entire image): ${PHOTO.twoMachine} Lightly darkened (~30% opac
 ${TRUST_STRIP}
 
 BIG STAT BLOCK (centered, middle 50% of image, vertical stack):
-  • Line 1 (massive): the exact text "ZERO" in HUGE bold condensed white sans-serif.
-  • Line 2 (smaller but still very large): the exact text "SUBCONTRACTORS" in bold condensed white sans-serif all-caps.
-  • Line 3 (smaller): the exact text "OUR CREW · OUR IRON · OUR JOB" in regular sans-serif all-caps white.
+  • Line 1 (massive): the exact text "FAMILY OWNED" in HUGE bold condensed white sans-serif (the biggest text on the image).
+  • Line 2 (smaller): the exact text "LOCAL CREW" in bold condensed white sans-serif all-caps.
+  • Line 3 (smaller still): the exact text "OUR IRON · OUR JOB" in regular sans-serif all-caps white.
 
 CTA BADGE (bottom-center): A bright yellow pill (hex #facc15) with the exact text "GET MY QUOTE →" in bold black sans-serif all-caps.
 
 ${TEXT_RULES}`,
     copy: {
-      headline: 'Zero subcontractors',
-      primaryText: 'We own the equipment, run the equipment, and fix the equipment. Thats why our jobs finish on the day we said they would.',
+      headline: 'Family-owned. Local crew.',
+      primaryText: 'We own the equipment, we run it, we fix it. Jobs finish on the day we said they would.',
       cta: 'Get Quote',
     },
   },

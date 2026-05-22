@@ -8,7 +8,7 @@ export function Services() {
     <div class="container-x">
       <div class="max-w-3xl">
         <span class="eyebrow">What we do</span>
-        <h2 class="h-section mt-3">Seven services. One crew. No subcontractors.</h2>
+        <h2 class="h-section mt-3">Seven services. One crew. Done right.</h2>
         <p class="mt-4 text-stone-300 text-lg">
           We own the equipment, we run the equipment, and we fix the equipment. That's why our jobs
           start on time and finish on the day we said they would.

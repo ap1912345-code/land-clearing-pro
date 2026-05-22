@@ -7,7 +7,7 @@ export function Testimonials() {
     <div class="container-x">
       <div class="max-w-3xl">
         <span class="eyebrow">What clients say</span>
-        <h2 class="h-section mt-3">No bots. No filler. Real jobs, real people.</h2>
+        <h2 class="h-section mt-3">Real jobs, real people, right here.</h2>
       </div>
       <div class="mt-12 grid md:grid-cols-2 gap-6">
         ${TESTIMONIALS.map(t => `

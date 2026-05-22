@@ -20,7 +20,7 @@ export function Hero() {
         </h1>
         <p class="mt-5 text-lg sm:text-xl text-stone-200/90 max-w-2xl">
           From a single problem tree to fifty wild acres — we drop, mulch, grind, dig, and grade
-          with our own heavy equipment. No subcontractors, no surprise invoices.
+          with our own heavy equipment. No surprise invoices.
         </p>
         <ul class="mt-6 flex flex-wrap gap-2">
           <li class="chip">Free on-site estimate</li>
