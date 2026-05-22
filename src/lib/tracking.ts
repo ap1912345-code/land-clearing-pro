@@ -81,12 +81,32 @@ export type LeadInput = {
   zip?: string;
 };
 
+// Per-session dedup. One visitor doing multiple lead-worthy actions (e.g. tap
+// call AND submit form) should count as ONE lead in Ads Manager, otherwise the
+// CPL the algorithm sees is artificially halved and optimization drifts.
+// sessionStorage clears when the tab closes — a return-visit later still counts.
+const LEAD_FIRED_KEY = 'lead_fired';
+
+function leadAlreadyFired(): boolean {
+  try { return sessionStorage.getItem(LEAD_FIRED_KEY) === '1'; } catch { return false; }
+}
+function markLeadFired() {
+  try { sessionStorage.setItem(LEAD_FIRED_KEY, '1'); } catch { /* ignore */ }
+}
+
 // Fire the standard Meta `Lead` event with proper optimization signals:
 //   - value/currency tell the algorithm lead worth (phone > form)
 //   - content_category gives the service so audiences can be segmented
 //   - eventID enables deduplication if you add server-side CAPI later
 //   - advanced matching (hashed em/ph/fn/ln/zp) raises FB match rate dramatically
 export async function trackLead(input: LeadInput): Promise<void> {
+  if (leadAlreadyFired()) {
+    // Still log for QA so you can see repeat actions in DevTools, but skip
+    // the actual Pixel/GA4 conversion events.
+    console.debug('[track] Lead skipped (already fired this session)', input);
+    return;
+  }
+
   const value = LEAD_VALUE[input.method];
   const eventId = newEventId();
 
@@ -124,6 +144,7 @@ export async function trackLead(input: LeadInput): Promise<void> {
   });
 
   console.debug('[track] Lead', { eventId, value, ...input });
+  markLeadFired();
 }
 
 function newEventId(): string {
