@@ -12,7 +12,8 @@
     "generate:ads": "tsx scripts/generate-ads.ts",
     "generate:ads:dry": "tsx scripts/generate-ads.ts --dry-run",
     "optimize:images": "tsx scripts/optimize-images.ts",
-    "optimize:images:dry": "tsx scripts/optimize-images.ts --dry-run"
+    "optimize:images:dry": "tsx scripts/optimize-images.ts --dry-run",
+    "export:ads-csv": "tsx scripts/export-ads-csv.ts"
   },
   "devDependencies": {
     "@types/node": "^25.9.1",
