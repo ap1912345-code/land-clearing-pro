@@ -3,7 +3,7 @@ export const BUSINESS = {
   name:      import.meta.env.VITE_BUSINESS_NAME      ?? 'Prentiss Services LLC',
   phone:     import.meta.env.VITE_BUSINESS_PHONE     ?? '(555) 123-4567',
   phoneTel:  import.meta.env.VITE_BUSINESS_PHONE_TEL ?? '+15551234567',
-  area:      import.meta.env.VITE_SERVICE_AREA       ?? 'Central Massachusetts',
+  area:      import.meta.env.VITE_SERVICE_AREA       ?? 'near you',
 };
 
 export const TRACKING = {

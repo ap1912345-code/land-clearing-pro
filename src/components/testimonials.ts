@@ -20,7 +20,7 @@ export function Testimonials() {
           </blockquote>
           <figcaption class="mt-4 text-sm text-stone-400">
             <span class="text-stone-200 font-semibold">${esc(t.name)}</span>
-            · ${esc(t.location)} · ${esc(t.job)}
+            · ${esc(t.job)}
           </figcaption>
         </figure>`).join('')}
       </div>
