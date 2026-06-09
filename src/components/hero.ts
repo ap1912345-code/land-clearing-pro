@@ -13,7 +13,7 @@ export function Hero() {
 
     <div class="container-x pt-16 pb-20 lg:pt-24 lg:pb-28 grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-7">
-        <span class="eyebrow">Family-owned · Fully insured · ${esc(BUSINESS.area)}</span>
+        <span class="eyebrow">Family-owned · Fully insured · <span data-loc-area>${esc(BUSINESS.area)}</span></span>
         <h1 class="h-display mt-3">
           Raw land, cleared right.<br/>
           <span class="text-brand-300">Trees. Brush. Stumps. Rock.</span>

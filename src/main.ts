@@ -11,6 +11,7 @@ import { Footer } from './components/footer';
 import { wireLeadForms } from './lib/lead-form';
 import { wireBeforeAfter } from './lib/before-after';
 import { installPixels } from './lib/tracking';
+import { detectLocalization, applyLocalization } from './lib/geo';
 
 const app = document.getElementById('app');
 if (!app) throw new Error('#app root not found');
@@ -30,3 +31,4 @@ app.innerHTML = [
 installPixels();
 wireLeadForms();
 wireBeforeAfter();
+detectLocalization().then(applyLocalization);

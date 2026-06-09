@@ -3,6 +3,10 @@ export type Testimonial = {
   name: string;
   location: string;
   job: string;
+  // Approximate town coords — used to sort testimonials nearest-first to the
+  // visitor when we can resolve their geo on the client.
+  lat: number;
+  lon: number;
 };
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -12,6 +16,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'D. McAllister',
     location: 'Hubbardston, MA',
     job: 'Brush mulching, 4 acres',
+    lat: 42.4737, lon: -72.0089,
   },
   {
     quote:
@@ -19,6 +24,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'K. Halverson',
     location: 'Princeton, MA',
     job: 'Tree removal + stump grinding',
+    lat: 42.4537, lon: -71.8775,
   },
   {
     quote:
@@ -26,6 +32,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'M. Becker',
     location: 'Templeton, MA',
     job: 'Boulder removal + driveway cut',
+    lat: 42.5564, lon: -72.0628,
   },
   {
     quote:
@@ -33,5 +40,6 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'J. Sullivan',
     location: 'Westminster, MA',
     job: 'Excavator rental, weekend',
+    lat: 42.5479, lon: -71.9095,
   },
 ];

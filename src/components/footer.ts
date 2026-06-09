@@ -9,7 +9,7 @@ export function Footer() {
       <div>
         <div class="font-display text-xl">${esc(BUSINESS.name)}</div>
         <p class="text-stone-400 text-sm mt-2">
-          Serving ${esc(BUSINESS.area)}. Family-owned and operated. Fully licensed and insured.
+          Serving <span data-loc-area>${esc(BUSINESS.area)}</span>. Family-owned and operated. Fully licensed and insured.
         </p>
       </div>
       <div class="text-sm text-stone-300">
