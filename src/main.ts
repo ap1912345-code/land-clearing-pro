@@ -16,6 +16,17 @@ import { detectLocalization, applyLocalization } from './lib/geo';
 const app = document.getElementById('app');
 if (!app) throw new Error('#app root not found');
 
+// Ads often point to "/#lead-form" to pre-scroll the form into view on
+// desktop. Because we mount the DOM lazily, mobile browsers (iOS Safari in
+// particular) resolve that fragment AFTER innerHTML runs and jump past the
+// hero — visitors land at the bottom of the page on first open. Strip the
+// hash and pin the scroll position to the top here. In-page CTAs still work
+// because they fire after mount.
+if (location.hash) {
+  history.replaceState(null, '', location.pathname + location.search);
+}
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 app.innerHTML = [
   Nav(),
   Hero(),
@@ -27,6 +38,8 @@ app.innerHTML = [
   LeadFormSection(),
   Footer(),
 ].join('\n');
+
+window.scrollTo(0, 0);
 
 installPixels();
 wireLeadForms();
