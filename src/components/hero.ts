@@ -57,6 +57,7 @@ function HeroLeadCard() {
       <input class="input" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="Property ZIP" required pattern="[0-9]{5}" />
       <select class="input" name="service" required>
         <option value="">What do you need?</option>
+        <option>Land clearing (full site prep)</option>
         <option>Tree removal</option>
         <option>Dense brush / mulching</option>
         <option>Stump grinding</option>

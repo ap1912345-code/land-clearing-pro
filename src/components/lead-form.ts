@@ -63,6 +63,7 @@ export function LeadFormSection() {
               <span class="sr-only">Service needed</span>
               <select class="input" name="service" required>
                 <option value="">Service needed</option>
+                <option>Land clearing (full site prep)</option>
                 <option>Tree removal</option>
                 <option>Dense brush / forestry mulching</option>
                 <option>Stump grinding</option>
